@@ -22,8 +22,16 @@ function Login() {
         axios.post("http://localhost:8000/auth/login", data).then(function (data) {
             if (data.data.success === true) {
                 console.log(data)
+                const { token, role } = data.data;
+                localStorage.setItem("token", token);
+                localStorage.setItem("role", role);
                 localStorage.setItem("authData", JSON.stringify({ token: data.data.token, role: data.data.role }))
-                navigate("/complaintlist")
+          
+                if (role === "admin") {
+                  navigate("/admin");
+                } else {
+                  navigate("/user");
+                }
             }
 
         }).catch(function (err) {

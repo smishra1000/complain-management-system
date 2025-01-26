@@ -10,6 +10,7 @@ router.get("/all", async function (req, res) {
 })
 router.post("/create", async function (req, res) {
     let newComplnts = new cmplntModel(req.body)
+    newComplnts.status="open"
     await newComplnts.save()
     res.send("complaint created successfully")
 })
@@ -25,6 +26,11 @@ router.get("/cmplntById/:id", async function (req, res) {
 router.put("/edit/:id", async function (req, res) {
     const updatedCmplnt = await cmplntModel.findByIdAndUpdate({ "_id": new ObjectId(req.params.id) }, req.body, { upsert: true })
     res.send("complaint updated successfully")
+})
+
+router.put("/status/:id", async function (req, res) {
+    const updatedCmplnt = await cmplntModel.findByIdAndUpdate({ "_id": new ObjectId(req.params.id) }, {status:req.body.status}, { upsert: true })
+    res.send("complaint status solved updated")
 })
 
 router.get("/searchByTitle/:title", async function (req, res) {

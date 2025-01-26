@@ -116,7 +116,7 @@ function ComplaintList() {
                                 </div>
 
                                 <div className="col-md-2">
-                                <span><b>Status:</b></span> <button className="btn btn-sm btn-warning ml-2">Pending</button>
+                                <span><b>Status:</b></span> <button className="btn btn-sm btn-warning ml-2">{cmplnt.status}</button>
                                 </div>
 
 

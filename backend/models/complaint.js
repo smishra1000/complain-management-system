@@ -4,7 +4,8 @@ const complaintSchema = new mongoose.Schema({
     content:String,
     author:String,
     image:String,
-    category:String
+    category:String,
+    status:String
 })
 
 module.exports = mongoose.model("complaint",complaintSchema,"complaint")
