@@ -11,6 +11,8 @@ import { getUserRole } from "./utils/auth";
 
 import UserPage from "./pages/UserPage";
 import AdminPage from "./pages/AdminPage";
+import LandingPage from "./pages/LandingPage";
+import Contact from "./pages/Contact";
 
 const ProtectedRoute = ({ role, children }) => {
   const userRole = getUserRole();
@@ -51,6 +53,8 @@ function App() {
          
         <Route path="/login" element={<Navigate to="/login" />} />
         <Route path="/signup" element={<Signup />} ></Route>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
         {/* <Routes>
           <Route element={<PrivateRoutes />}>
