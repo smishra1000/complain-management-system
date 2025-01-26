@@ -67,31 +67,39 @@ function AdminComplaintList() {
     return (
         <div className="container-fluid">
             <div className="container mt-4">
-                <div className="row">
+                <div className="row mt-5">
                     <div className="col-md-9">
                         <h3>All Complaints</h3>
                     </div>
-                    <div className="col-md-3" style={{ textAlign: "right" }}>
-
-                        <button className="btn btn-danger btn-sm" onClick={() => goToLogout()}>Logout</button>
-                    </div>
-
                 </div>
-                <div className="row">
+                <div className="row mt-5 mb-5">
                     <div className="col-md-6">
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search By Title" aria-label="Search" onChange={(e) => changeSearchKey(e)} value={searchKey} />
                             <button class="btn btn-outline-success" type="submit" onClick={(e) => searchCmplnts(e)}>Search</button>
                         </form>
                     </div>
-                    <div className="col-md-6" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        {categories.map((category, index) => {
-                            return (
-                                <span className={selectedCategoryIndex === index ? 'badge rounded-pill bg-success' : 'badge rounded-pill bg-secondary'} style={{ cursor: "pointer" }} onClick={(e) => getByCategory(e, category, index)}>{category}</span>
-                            )
-                        })
-
-                        }
+                    <div
+                        className="col-md-6"
+                        style={{ display: "flex", flexWrap: "wrap", gap: "5px", alignItems: "center" }}
+                    >
+                        {categories.map((category, index) => (
+                            <span
+                                key={index}
+                                className={
+                                    selectedCategoryIndex === index
+                                        ? "badge rounded-pill bg-success"
+                                        : "badge rounded-pill bg-secondary"
+                                }
+                                style={{
+                                    cursor: "pointer",
+                                    margin: "2px 0", // Small vertical margin to avoid overlap
+                                }}
+                                onClick={(e) => getByCategory(e, category, index)}
+                            >
+                                {category}
+                            </span>
+                        ))}
                     </div>
                 </div>
 

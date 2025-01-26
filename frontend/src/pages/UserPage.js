@@ -7,7 +7,6 @@ const UserPage = () => {
   return (
     <div className="container-fluid">
       <NavbarUser />
-      <h1>User Dashboard</h1>
       <Outlet /> {/* This will render the nested routes */}
     </div>
   );

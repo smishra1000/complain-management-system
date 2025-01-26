@@ -8,7 +8,6 @@ const AdminPage = () => {
   return (
     <div className="container-fluid">
       <NavbarAdmin />
-      <h1>Admin Dashboard</h1>
       <Outlet /> {/* This will render the nested routes */}
     </div>
   );

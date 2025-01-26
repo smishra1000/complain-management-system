@@ -41,27 +41,43 @@ function Login() {
     }
 
     return (
-        <div className="login-container">
-            <div className="login-box">
-                <h1>Login</h1>
-                <form onSubmit={(e) => login(e)}>
-                    <div className="mb-3">
-                        <label className="form-label">Email address</label>
-                        <input type="email" className="form-control" value={email} onChange={(e) => onEmailChange(e)}/>
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label">Password</label>
-                        <input type="password" className="form-control" value={password} onChange={(e) => onPasswordChange(e)}/>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                    <div>
-                        <p>
-                            Don't have an account? Sign up <Link to="/signup">Here</Link>
-                        </p>
-                    </div>
-                </form>
+        <div className="d-flex align-items-center justify-content-center vh-100" style={{ backgroundColor: "#f8f9fa" }}>
+      <div className="card shadow-lg p-4" style={{ maxWidth: "400px", width: "100%" }}>
+        <div className="card-body">
+          <h1 className="card-title text-center mb-4">Login</h1>
+          <form onSubmit={login}>
+            <div className="mb-3">
+              <label className="form-label">Email address</label>
+              <input
+                type="email"
+                className="form-control"
+                value={email}
+                onChange={onEmailChange}
+                required
+              />
             </div>
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                value={password}
+                onChange={onPasswordChange}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary w-100">
+              Submit
+            </button>
+            <div className="text-center mt-3">
+              <p>
+                Don't have an account? Sign up <Link to="/signup">Here</Link>
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
     )
 }
 export default Login

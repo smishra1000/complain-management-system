@@ -46,59 +46,105 @@ function Dashboardd() {
         })
     }
     return (
-        <div className="container">
-            <div className="row" style={{ border: "2px solid #ddd" }}>
-                <div className="col-md-6">
-                    <div className="leftside" style={{ height: '400px', background: 'teal' }}>
-                        <h1 className="text-center">Complaint register form</h1>
-                    </div>
+        <div className="container py-5" style={{ backgroundColor: "#f9f9f9", minHeight: "100vh" }}>
+        <div className="row justify-content-center">
+          <div className="col-md-10">
+            <div className="row">
+              {/* Left Side - Card */}
+              <div className="col-md-6 mb-4">
+                <div
+                  className="card h-100 rounded shadow"
+                  style={{ backgroundColor: "#004d40", color: "#fff", borderRadius: "15px" }}
+                >
+                  <div className="card-body d-flex align-items-center justify-content-center">
+                    <h1 className="text-center">Complaint Register Form</h1>
+                  </div>
                 </div>
-                <div className="col-md-6">
-                    <div className="row">
-
-                        <div className="mb-3">
-                            <label className="form-label">Title</label>
-                            <input type="text" className="form-control" aria-describedby="emailHelp" name="title" value={cmplntData.title} onChange={(e) => onFeildChange(e)} />
-                            <div id="emailHelp" className="form-text"></div>
-                        </div>
-
-                    </div>
-                    <div className="row">
-                        <div className="mb-3">
-                            <label className="form-label">content</label>
-
-                            <textarea className="form-control" rows="7" value={cmplntData.content} name="content" onChange={(e) => onFeildChange(e)}></textarea>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="mb-3">
-                            <label className="form-label">Author</label>
-                            <textarea className="form-control" rows="1" value={cmplntData.author} name="author" onChange={(e) => onFeildChange(e)} ></textarea>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="mb-3">
-                            <label className="form-label">Category</label>
-                            <textarea className="form-control" rows="1" value={cmplntData.category} name="category" onChange={(e) => onFeildChange(e)} ></textarea>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="mb-3">
-                            <label className="form-label">upload image</label>
-                            <input className="form-control" type="file" rows="1"name="category" onChange={(e) => onFileChange(e)} ></input>
-                        </div>
-                    </div>
-
-                    <button type="submit" className="btn btn-primary" onClick={(e) => saveCmplnt(e)}>Create</button>
-
+              </div>
+      
+              {/* Right Side - Card */}
+              <div className="col-md-6 mb-4">
+                <div
+                  className="card h-100 p-4 shadow"
+                  style={{ borderRadius: "15px", backgroundColor: "#ffffff" }}
+                >
+                  <div className="mb-3">
+                    <label className="form-label">Title</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      aria-describedby="emailHelp"
+                      name="title"
+                      value={cmplntData.title}
+                      onChange={(e) => onFeildChange(e)}
+                    />
+                  </div>
+      
+                  <div className="mb-3">
+                    <label className="form-label">Content</label>
+                    <textarea
+                      className="form-control"
+                      rows="7"
+                      value={cmplntData.content}
+                      name="content"
+                      onChange={(e) => onFeildChange(e)}
+                    ></textarea>
+                  </div>
+      
+                  <div className="mb-3">
+                    <label className="form-label">Author</label>
+                    <textarea
+                      className="form-control"
+                      rows="1"
+                      value={cmplntData.author}
+                      name="author"
+                      onChange={(e) => onFeildChange(e)}
+                    ></textarea>
+                  </div>
+      
+                  <div className="mb-3">
+                    <label className="form-label">Category</label>
+                    <textarea
+                      className="form-control"
+                      rows="1"
+                      value={cmplntData.category}
+                      name="category"
+                      onChange={(e) => onFeildChange(e)}
+                    ></textarea>
+                  </div>
+      
+                  <div className="mb-3">
+                    <label className="form-label">Upload Image</label>
+                    <input
+                      className="form-control"
+                      type="file"
+                      name="category"
+                      onChange={(e) => onFileChange(e)}
+                    />
+                  </div>
+      
+                  <button
+                    type="submit"
+                    className="btn btn-success w-100 mb-3"
+                    onClick={(e) => saveCmplnt(e)}
+                  >
+                    Create
+                  </button>
+      
+                  <button
+                    type="button"
+                    className="btn btn-secondary w-100"
+                    onClick={(e) => goToCmplntList(e)}
+                  >
+                    Back
+                  </button>
                 </div>
-               
-                
+              </div>
             </div>
-            <button type="text" className="btn btn-primary" onClick={(e) => goToCmplntList(e)}>Back</button>
-           
+          </div>
         </div>
+      </div>
+      
 
     )
 }

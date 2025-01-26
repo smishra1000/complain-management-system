@@ -33,28 +33,53 @@ function Signup() {
 
     }
     return (
-        <div>
-            <h1>Signup page</h1>
-            <form onSubmit={(e) => signup(e)}>
-                <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" value={email} onChange={(e) => onEmailChange(e)} />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" value={password} onChange={(e) => onPasswordChange(e)} />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Role</label>
-                    <input type="text" class="form-control" value={role} onChange={(e) => onRoleChange(e)} />
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <div>
-                    <p>Already have an account?? Login  <Link to="/">Here</Link></p>
-                </div>
+        <div className="d-flex align-items-center justify-content-center vh-100" style={{ backgroundColor: "#f8f9fa" }}>
+        <div className="card shadow-lg p-4" style={{ maxWidth: "400px", width: "100%" }}>
+          <div className="card-body">
+            <h1 className="card-title text-center mb-4">Signup</h1>
+            <form onSubmit={signup}>
+              <div className="mb-3">
+                <label className="form-label">Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  value={email}
+                  onChange={onEmailChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  value={password}
+                  onChange={onPasswordChange}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Role</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={role}
+                  onChange={onRoleChange}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary w-100">
+                Submit
+              </button>
+              <div className="text-center mt-3">
+                <p>
+                  Already have an account? Login <Link to="/login">Here</Link>
+                </p>
+              </div>
             </form>
+          </div>
         </div>
+      </div>
     )
 }
 export default Signup

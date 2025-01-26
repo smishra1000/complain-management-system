@@ -26,7 +26,7 @@ const ProtectedRoute = ({ role, children }) => {
 };
 function App() {
   return (
-    <div className="container">
+    <div className="container-fluid no-gutters">
       <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />

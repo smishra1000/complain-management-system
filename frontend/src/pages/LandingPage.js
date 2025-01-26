@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <div>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light custom-navbar">
         <div className="container">
           <a className="navbar-brand" href="/">ComplaintManagementSystem</a>
           <button
@@ -49,7 +49,7 @@ const LandingPage = () => {
           </div>
           <div className="col-md-6">
             <img
-              src="https://via.placeholder.com/500x300"
+              src="https://as1.ftcdn.net/v2/jpg/02/11/07/58/1000_F_211075851_gSKybVNvDWgZnrIaleNsQfIz2mqPKaor.jpg"
               alt="Hero"
               className="img-fluid"
             />
