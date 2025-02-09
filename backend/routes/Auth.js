@@ -25,7 +25,7 @@ router.post("/login", async function (req, res) {
     if (user && user.email) {
         if (user.password === req.body.password) {
             const token = jwt.sign({ id: user._id, email: user.email, role:user.role }, "testkey")
-            res.send({ msg: "login successfull", success: true, token: token, role:user.role})
+            res.send({ msg: "login successfull", success: true, token: token, role:user.role,userId:user._id})
         } else {
             res.send({ msg: "wrong password", success: false })
         }

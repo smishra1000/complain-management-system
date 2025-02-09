@@ -119,8 +119,8 @@ function AdminComplaintList() {
                                         <h2>{cmplnt.title}</h2>
                                         <p>{cmplnt.content}</p>
                                         <div className="row">
-                                            <p>Author:<span className="badge text-bg-warning">{cmplnt.author}</span></p>
-                                            <p>Category:<span className="badge text-bg-danger">{cmplnt.category}</span></p>
+                                            <p>Author:<span className="badge text-bg-warning">{cmplnt.userId.name}</span></p>
+                                            <p>Category:<span className="badge text-bg-danger">{cmplnt.category.name}</span></p>
                                         </div>
 
                                         <a href="#" className="btn btn-primary">Read more</a>

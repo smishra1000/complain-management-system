@@ -18,11 +18,25 @@ function ComplaintList() {
     navigate("/user/editcomplaint/" + cmplnt._id)
   }
   const getAllCmplnts = () => {
-    axios.get("http://localhost:8000/complaints/all").then(function (res) {
-      setCmplnts(res.data)
-    }).catch(function (err) {
-      console.log(err)
+    // axios.get("http://localhost:8000/complaints/all").then(function (res) {
+    //   setCmplnts(res.data)
+    // }).catch(function (err) {
+    //   console.log(err)
+    // })
+    const userId = localStorage.getItem("userId"); // Retrieve user ID from localStorage
+  
+  if (!userId) {
+    console.log("User ID not found in localStorage");
+    return;
+  }
+
+  axios.get(`http://localhost:8000/complaints/user/${userId}`)
+    .then((res) => {
+      setCmplnts(res.data);
     })
+    .catch((err) => {
+      console.log(err);
+    });
   }
   const goToLogout = () => {
     navigate("/login")
@@ -138,14 +152,14 @@ function ComplaintList() {
                     <div className="col-md-8">
                       <div className="card-body">
                         <h5 className="card-title">{cmplnt.title}</h5>
-                        <p className="card-text text-truncate">{cmplnt.content}</p>
-                        <p className="mb-1">
+                        <p className="card-text text-truncate">{cmplnt.description}</p>
+                        {/* <p className="mb-1">
                           <strong>Author:</strong>{" "}
                           <span className="badge text-bg-warning">{cmplnt.author}</span>
-                        </p>
+                        </p> */}
                         <p>
                           <strong>Category:</strong>{" "}
-                          <span className="badge text-bg-danger">{cmplnt.category}</span>
+                          <span className="badge text-bg-danger">{cmplnt.category.name}</span>
                         </p>
                       </div>
                       {/* Buttons */}

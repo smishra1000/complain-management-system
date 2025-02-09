@@ -5,12 +5,16 @@ import { useNavigate } from "react-router-dom"
 function Signup() {
     const navigate = useNavigate()
     const [email, setemail] = useState("")
+    const [name, setName] = useState("")
     const [password, setpassword] = useState("")
     const [role,setrole] = useState("")
 
     const onEmailChange = (e) => {
         setemail(e.target.value)
     }
+    const onNameChange = (e) => {
+      setName(e.target.value)
+  }
     const onPasswordChange = (e) => {
         setpassword(e.target.value)
     }
@@ -21,7 +25,7 @@ function Signup() {
 
         e.preventDefault();
         const data = {
-            email,password,role
+            email,password,role,name
         }
         axios.post("http://localhost:8000/auth/signup", data).then(function (data) {
             console.log("signup successfull")
@@ -38,6 +42,16 @@ function Signup() {
           <div className="card-body">
             <h1 className="card-title text-center mb-4">Signup</h1>
             <form onSubmit={signup}>
+            <div className="mb-3">
+                <label className="form-label">Name</label>
+                <input
+                  type="name"
+                  className="form-control"
+                  value={name}
+                  onChange={onNameChange}
+                  required
+                />
+              </div>
               <div className="mb-3">
                 <label className="form-label">Email address</label>
                 <input
@@ -58,6 +72,7 @@ function Signup() {
                   required
                 />
               </div>
+
               <div className="mb-3">
                 <label className="form-label">Role</label>
                 <input

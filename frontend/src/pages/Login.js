@@ -22,10 +22,11 @@ function Login() {
         axios.post("http://localhost:8000/auth/login", data).then(function (data) {
             if (data.data.success === true) {
                 console.log(data)
-                const { token, role } = data.data;
+                const { token, role,userId } = data.data;
                 localStorage.setItem("token", token);
                 localStorage.setItem("role", role);
-                localStorage.setItem("authData", JSON.stringify({ token: data.data.token, role: data.data.role }))
+                localStorage.setItem("userId", userId);
+                localStorage.setItem("authData", JSON.stringify({ token: data.data.token, role: data.data.role,userId:data.userId }))
           
                 if (role === "admin") {
                   navigate("/admin");
